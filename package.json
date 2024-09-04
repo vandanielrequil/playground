@@ -1,0 +1,13 @@
+{
+  "name": "vdPlayground",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "nest build"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
