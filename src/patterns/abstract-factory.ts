@@ -1,4 +1,4 @@
-import { Maze, Door, Room, Wall, Direction } from "./template-maze";
+import { Maze, Door, Room, Wall, Direction, MazeGame } from "./template-maze";
 
 export class MazeFactory {
     makeMaze(): Maze {
@@ -15,7 +15,7 @@ export class MazeFactory {
     }
 };
 
-export class MazeGame {
+class MazeGameFactory extends MazeGame {
     public createMaze(factory: MazeFactory): Maze {
         const aMaze = factory.makeMaze();
         const r1 = factory.makeRoom(1);
@@ -53,7 +53,6 @@ export class EnchantedMazeFactory extends MazeFactory {
     protected castSpell(): Spell { return 'avadacedavra' }
 };
 
-
 class RoomWithABomb extends Room {};
 class BombedWall extends Wall {};
 export class BombedMazeFactory extends MazeFactory {
@@ -61,7 +60,7 @@ export class BombedMazeFactory extends MazeFactory {
     makeRoom(n: number): Room { return new RoomWithABomb(n); }
 };
 
-const maze = new MazeGame();
+const maze = new MazeGameFactory();
 
 const enchantedMaze = maze.createMaze(new EnchantedMazeFactory());
 

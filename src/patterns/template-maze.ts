@@ -38,3 +38,7 @@ export class Maze {
 
     public roomNo(roomN: number): Room { return {} as Room }
 }
+
+export abstract class MazeGame {
+    abstract createMaze(...args): Maze;
+}
